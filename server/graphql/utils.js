@@ -11,18 +11,15 @@ const getBooks = async () => {
 };
 
 const getBooksByAuthorId = async (authorId) => {
-  const books = await getBooks();
-  return _.filter(books, { authorId });
+  return await Book.find({ authorId });
 };
 
 const getAuthorById = async (id) => {
-  const authors = await getAuthors();
-  return _.find(authors, { id });
+  return await Author.findById(id);
 };
 
 const getBookById = async (id) => {
-  const books = await getBooks();
-  return _.find(books, { id });
+  return await Book.findById(id);
 };
 
 module.exports = {
